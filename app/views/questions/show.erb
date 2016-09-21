@@ -1,0 +1,25 @@
+<div class='question-container'>
+  <h2><%= @question.title %></h2>
+  <div class='question-body'><%= @question.body %></div>
+  <div class='question-comments'>
+    <% @comments.each do |comment| %>
+      <div id='comment-<%= comment.id %>'>
+        <%= comment.body %>
+        <div class='comment-footer'>
+          <%= comment.user %> wrote this comment at <%= comment.created_at %>
+        </div>
+      </div>
+    <% end %>
+</div>
+
+<div class='answers-container'>
+  <h3><%= @answers.count %> Answers</h3>
+  <% @answers.each do |answer| %>
+    <div class='answer-<%= answer.id %>'>
+      <%= answer.body %>
+      <div class='answer-footer'>
+        <%= answer.user %> answered this at <%= answer.created_at %>
+      </div>
+    </div>
+  <% end %>
+</div>
