@@ -1,0 +1,29 @@
+<h1>Login Page</h1>
+
+<div class="homepage">
+  <h1>Welcome to the member login page!</h1>
+</div>
+
+<div class='error_message'>
+ <%if @errors %>
+  <p><%= @errors %> </p>
+  <%end%>
+</div>
+
+<h3>Please enter your email address and password below:</h3>
+<form action="/login" method="post">
+
+
+  <label for="email">Email_address:</label>
+  <input type="text" name="email" />
+  <br>
+
+  <label for="password">Password:</label>
+  <input type="text" name="password" />
+  <br>
+
+  <input type="submit" value= "Login into your profile">
+
+  <ul>
+  <li><a href="/users/new">New? Click here.</a></li>
+  </ul>
