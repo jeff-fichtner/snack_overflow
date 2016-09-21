@@ -1,23 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
 
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- JavaScript -->
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- App CSS and JS -->  
+  <link rel="stylesheet" href="/css/application.css">
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Snack Overflow: A Snack-Based Platform</title>
 </head>
 <body>
-  <%= yield %>
+
+  <div class='container-fluid'>
+    <ul class='navbar'>
+      <% if logged_in? %>
+        <li><a href="/logout">Logout</a></li>
+      <% else %>
+        <li><a href="/users/new">Register</a></li>
+        <li><a href="/login">Login</a></li>
+      <% end %>
+      <li><a href="/questions">Home</a></li>
+    </ul>
+    <h1>Snack Overflow</h1>
+    <%= yield %>
+  </div>
+
 </body>
 </html>
