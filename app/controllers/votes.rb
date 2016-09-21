@@ -1,7 +1,7 @@
 post '/votes' do
   # validation needed
   if !params[:question_id]
-    question_id = params[:voteable_id]
+    question_id = params[:votable_id]
   else
     question_id = params[:question_id]
   end
