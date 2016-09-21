@@ -3,7 +3,6 @@ get '/questions' do
   erb :'questions/index'
 end
 
-
 get '/questions/new' do
   erb :'questions/new'
 end
@@ -16,7 +15,6 @@ get '/questions/:id' do
   session[:question_id] = @question.id
   erb :'questions/show'
 end
-
 
 post '/questions' do
   # puts '============im here==================='
