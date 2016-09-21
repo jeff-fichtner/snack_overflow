@@ -45,3 +45,25 @@
     <% end %>
   <% end %>
 </div>
+<% if @errors %>
+<% end %>
+<form method='POST' action='/answers' id='new-answer'>
+  <input type='hidden' name='question_id' value='<%= @question.id %>'>
+  <textarea rows = '5', cols = '75' name='body' placeholder='Answer This Question'></textarea><br>
+  <input type='submit' value='Submit'>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

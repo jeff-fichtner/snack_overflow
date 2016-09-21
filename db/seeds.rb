@@ -1,5 +1,5 @@
 10.times do
-User.create(username: Faker::Superhero.name, password_hash: 'password', email: Faker::Internet.email)
+User.create(username: Faker::Superhero.name, password: 'password', email: Faker::Internet.email)
 end
 
 5.times do
