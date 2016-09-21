@@ -10,3 +10,15 @@ post '/answers' do
     erb :'/login'
   end
 end
+
+put '/answers' do
+  answer = Answer.find(params[:answer_id])
+  question = answer.question
+  if question.user_id == current_user.id && question.id == params[:question_id]
+    answer.best = true
+    answer.save
+    redirect "questions/#{question.id}"
+  else
+    redirect '/'
+  end
+end
