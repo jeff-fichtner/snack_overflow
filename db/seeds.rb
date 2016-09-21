@@ -11,17 +11,17 @@ end
 end
 
 30.times do
-  Comment.create(user_id: rand(1..10), commentable_id: rand(1..5), commentable_type: 'question', body: Faker::Hipster.paragraph )
+  Comment.create(user_id: rand(1..10), commentable_id: rand(1..5), commentable_type: 'Question', body: Faker::Hipster.paragraph )
 end
 
 30.times do
-  Comment.create(user_id: rand(1..10), commentable_id: rand(1..30), commentable_type: 'answer', body: Faker::Hipster.paragraph )
+  Comment.create(user_id: rand(1..10), commentable_id: rand(1..30), commentable_type: 'Answer', body: Faker::Hipster.paragraph )
 end
 
 20.times do
-  Vote.create(votable_id: rand(1..30), votable_type: 'answer', user_id: rand(1..10))
+  Vote.create(votable_id: rand(1..30), votable_type: 'Answer', user_id: rand(1..10))
 end
 
 20.times do
-  Vote.create(votable_id: rand(1..5), votable_type: 'question', user_id: rand(1..10))
+  Vote.create(votable_id: rand(1..5), votable_type: 'Question', user_id: rand(1..10))
 end
