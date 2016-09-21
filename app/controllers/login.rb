@@ -7,6 +7,7 @@ post '/login' do
   if user != nil
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
+      redirect "/questions/#{session[:question_id]}" if session[:question_id]
       redirect "/users/#{user.id}"
     else
       @errors = "username or password not found"
