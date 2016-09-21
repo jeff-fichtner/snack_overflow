@@ -1,25 +1,36 @@
 <div class='question-container'>
+
   <h2><%= @question.title %></h2>
-  <div class='question-body'><%= @question.body %></div>
-  <div class='question-comments'>
+  <div class='question-body'>
+    <%= @question.body %>
+  </div>
+  <div class='question footer'>
+    <%= @question.votes.count %> votes
+    <%= @question.user.username %> answered this at <%= @question.created_at %>
+  </div>
+
+  <div class='question comment'>
+    <h4>Comments</h4>
     <% @comments.each do |comment| %>
-      <div id='comment-<%= comment.id %>'>
-        <%= comment.body %>
-        <div class='comment-footer'>
-          <%= comment.user %> wrote this comment at <%= comment.created_at %>
-        </div>
-      </div>
+      <%= erb(:'partials/_comment', locals: {comment: comment}) %>
     <% end %>
+  </div>
+
 </div>
 
-<div class='answers-container'>
+<div class='answer-container'>
   <h3><%= @answers.count %> Answers</h3>
   <% @answers.each do |answer| %>
-    <div class='answer-<%= answer.id %>'>
+    <div class='answer body' id='<%= answer.id %>'>
       <%= answer.body %>
-      <div class='answer-footer'>
-        <%= answer.user %> answered this at <%= answer.created_at %>
-      </div>
     </div>
+    <div class='footer'>
+      <%= answer.votes.count %> votes
+      <%= answer.user.username %> answered this at <%= answer.created_at %>
+    </div>
+    <h4>Comments</h4>
+    <% answer.comments.each do |comment| %>
+      <%= erb(:'partials/_comment', locals: {comment: comment}) %>
+    <% end %>
   <% end %>
 </div>
