@@ -23,7 +23,7 @@ post '/questions' do
   # p params
   @question = Question.new(user_id: session[:user_id], title: params[:title], body: params[:body])
     if @question.save
-      redirect "/questions/#{@question.id}'"
+      redirect "/questions/#{@question.id}"
     else
       @errors = "Something went wrong. Please check your entry and resubmit your post."
       erb :'/questions/new'
