@@ -12,3 +12,18 @@
   padding: 5px;
   border-top: 3px solid black;
 }
+
+.question-container, .answer-container {
+	margin: 0 auto;
+	padding: 1em;
+}
+
+.navbar li {
+	display: inline;
+	float: right;
+	padding: 20px;
+}
+
+h1 {
+	margin-left: 5em;
+}
