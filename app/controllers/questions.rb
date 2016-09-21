@@ -13,7 +13,7 @@ get '/questions/:id' do
   @answers = @question.answers.sort{ |a,b| b.total_votes <=> a.total_votes }
   @comments = @question.comments
   @votes = @question.votes
-  session[:question_id] = question_id
+  session[:question_id] = @question.id
   erb :'questions/show'
 end
 
@@ -28,4 +28,20 @@ post '/questions' do
       @errors = "Something went wrong. Please check your entry and resubmit your post."
       erb :'/questions/new'
     end
+end
 
+get '/questions/:id/comments/new' do
+  @question = Question.find(params[:id])
+  erb :'/comments/new'
+end
+
+post '/questions/:id/comment' do
+  @question = Question.find(params[:id])
+  @comment = Comment.new(user_id: current_user.id, commentable_id: @question.id, commentable_type: 'Question', body: params[:body])
+  if @comment.save
+    redirect "/questions/#{@question.id}"
+  else
+  @errors = "There was a problem posting your comment. Please try again."
+  erb :'/comments/new'
+  end
+end

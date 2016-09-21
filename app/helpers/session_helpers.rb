@@ -5,13 +5,12 @@ helpers do
   end
 
   def logged_in?
-    if session[:user_id] != nil
-    end
+    session[:user_id] != nil
+
   end
 
   def owner?
-    if self.user_id == current_user.id
-    end
+    self.user_id == current_user.id
   end
 
 end
