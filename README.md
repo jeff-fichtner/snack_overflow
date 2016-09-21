@@ -1,30 +1,39 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+#Snack Overflow
 
-### Purpose
-The Sinatra Skeleton:
+##_Team: The Raisinets_
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+- Dan Dobrick
+- Lucas Wright
+- Jeff Fichtner
 
-### Quickstart
+###MVP
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+- Login/auth
+- User can add questions
+- User can answer questions
+- User can vote on questions and answers
+- User can comment on questions
+- User can choose a best answer on their question only
 
-As needed, create models & migrations with the `rake` tasks:
+- Homepage is sorted by highest voted questions
+- Answers are sorted by votes, with best question at top
+- Comments are displayed under their respective question or answer
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
 
-### Contributing
+###Stretch
 
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
+- User can only vote once
+- CSS
+- AJAX
+- User profile
+- [User can/can't vote on their own questions or answers]
 
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
 
-Be prepared to give and receive specific, actionable, and kind feedback!
+####Group Norms:
+
+- PR reviewed by other team member
+- Check in: at end of task or every 30 min, whichever comes first
+- Wed: login/auth, questions, answers, comments
+- Have fun!
+-     or else!
+- No shoes!
