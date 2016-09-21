@@ -1,0 +1,14 @@
+.footer{
+  font-size: .75em;
+  color: grey;
+}
+
+.comment{
+  font-size: .8em;
+
+}
+
+.answer {
+  padding: 5px;
+  border-top: 3px solid black;
+}
