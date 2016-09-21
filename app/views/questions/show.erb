@@ -28,8 +28,20 @@
 
 <div class='answer-container'>
   <h3><%= @answers.count %> Answers</h3>
+
   <% @answers.each do |answer| %>
-    <form method='POST' action='/votes'>
+  best = <%= answer.best %>
+
+  <% if @question.is_owner?(current_user.id) %>
+    <form class='best' method='POST' action='/answers'>
+      <input type='hidden' name='_method' value='PUT'>
+      <input type='hidden' name='answer_id' value='<%= answer.id %>'>
+      <input type='hidden' name='question_id' value='<%= @question.id %>'>
+      <button type='submit'>Select as best</button>
+    </form>
+  <% end %>
+
+    <form class='vote' method='POST' action='/votes'>
       <input type='hidden' name='votable_id' value='<%= answer.id %>'>
       <input type='hidden' name='question_id' value='<%= @question.id %>'>
       <input type='hidden' name='votable_type' value='Answer'>
