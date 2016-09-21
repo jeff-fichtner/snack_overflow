@@ -1,7 +1,6 @@
 <div class='question-container'>
 
   <h2><%= @question.title %></h2>
-  <%= @question.user_id == current_user.id %>
   <form method='POST' action='/votes'>
     <input type='hidden' name='votable_id' value='<%= @question.id %>'>
     <input type='hidden' name='votable_type' value='Question'>
@@ -28,6 +27,7 @@
   <h3><%= @answers.count %> Answers</h3>
 
   <% @answers.each do |answer| %>
+  best = <%= answer.best %>
 
   <% if @question.is_owner?(current_user.id) %>
     <form class='best' method='POST' action='/answers'>
