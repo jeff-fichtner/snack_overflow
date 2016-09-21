@@ -1,6 +1,6 @@
 <h2>Questions:</h2>
 <ul>
 <% @questions.each do |question| %>
-  <li><span id ='<%= question.id%>'><%= question.title%></span></li>
+  <li><span id ='<%= question.id %>'><a href='/questions/<%= question.id %>'><%= question.title %><a href=''></span></li>
 <% end %>
 </ul>
