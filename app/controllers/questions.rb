@@ -3,6 +3,7 @@ get '/questions/:id' do
   @answers = @question.answers.sort{ |a,b| b.total_votes <=> a.total_votes }
   @comments = @question.comments
   @votes = @question.votes
+  session[:question_id] = question_id
   erb :'questions/show'
 end
 
