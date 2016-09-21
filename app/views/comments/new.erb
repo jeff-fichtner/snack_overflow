@@ -5,7 +5,12 @@
 
 <div class='error_message'>
  <%if @errors %>
-  <p><%= @errors %> </p>
+ There was a problem posting your comment. Please try again.
+  <ul>
+    <% @errors.each do |error| %>
+    <li><%= error %></li>
+    <% end %>
+  </ul>
   <%end%>
 </div>
 

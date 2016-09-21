@@ -40,7 +40,7 @@ post '/questions/:id/comment' do
   if @comment.save
     redirect "/questions/#{@question.id}"
   else
-  @errors = "There was a problem posting your comment. Please try again."
+    @errors = @comment.errors.full_messages
   erb :'/comments/new'
   end
 end
