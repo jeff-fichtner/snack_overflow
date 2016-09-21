@@ -1,0 +1,20 @@
+<div class="new_comment_area">
+  <h1>New Comment Submission</h1>
+  <h2>Please fill out the the information below to post a comment:</h2>
+</div>
+
+<div class='error_message'>
+ <%if @errors %>
+  <p><%= @errors %> </p>
+  <%end%>
+</div>
+
+
+<form action="/questions/<%= @question.id%>/comment" method="post">
+  <label for="body">Comment:</label>
+  <input type="text" name="body" />
+  <br>
+
+  <input type="submit" value= "Post Comment">
+
+</form>

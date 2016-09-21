@@ -13,6 +13,9 @@
     <%= @question.votes.count %> votes
     <%= @question.user.username %> answered this at <%= @question.created_at %>
   </div>
+  <div class='comment_link'>
+    <a href="/questions/<%=@question.id%>/comments/new"> Comment on this question</a>
+  </div>
 
   <div class='question comment'>
     <h4>Comments</h4>
