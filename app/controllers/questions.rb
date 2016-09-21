@@ -7,6 +7,6 @@ get '/questions/:id' do
 end
 
 get '/questions' do
-  @questions = Question.all.sort{ |a,b| a.total_votes <=> b.total_votes }
+  @questions = Question.all.sort{ |a,b| b.total_votes <=> a.total_votes }
   erb :'questions/index'
 end
