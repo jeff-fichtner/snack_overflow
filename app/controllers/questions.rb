@@ -3,7 +3,6 @@ get '/questions' do
   erb :'questions/index'
 end
 
-
 get '/questions/new' do
   erb :'questions/new'
 end
@@ -17,7 +16,6 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
-
 post '/questions' do
   # puts '============im here==================='
   # p params
@@ -28,4 +26,4 @@ post '/questions' do
       @errors = "Something went wrong. Please check your entry and resubmit your post."
       erb :'/questions/new'
     end
-
+end
