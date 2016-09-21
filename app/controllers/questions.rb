@@ -3,9 +3,10 @@ get '/questions/:id' do
   @answers = @question.answers
   @comments = @question.comments
   @votes = @question.votes
-  erb :'/questions/show'
+  erb :'questions/show'
 end
 
-get '/' do
-  redirect '/questions/1'
+get '/questions' do
+  @questions = Question.all
+  erb :'questions/index'
 end
