@@ -14,7 +14,7 @@
     <%= @question.user.username %> answered this at <%= @question.created_at %>
   </div>
   <div class='comment_link'>
-    <a href="/questions/<%=@question.id%>/comments/new"> Comment on this question</a>
+    <a href="/questions/<%=@question.id%>/comment/new"> Comment on this question</a>
   </div>
 
   <div class='question comment'>
@@ -58,7 +58,12 @@
     <% answer.comments.each do |comment| %>
       <%= erb(:'partials/_comment', locals: {comment: comment}) %>
     <% end %>
+      <div class='comment_link'>
+        <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>/comment/new"> Comment on this answer</a>
+      </div>
   <% end %>
+
+
 </div>
 <% if @errors %>
 <% end %>

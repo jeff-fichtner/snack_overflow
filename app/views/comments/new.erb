@@ -9,6 +9,18 @@
   <%end%>
 </div>
 
+<%if @answer %>
+
+<form action="/questions/<%= @question.id%>/answers/<%=@answer.id%>/comment" method="post">
+  <label for="body">Comment:</label>
+  <input type="text" name="body" />
+  <br>
+
+  <input type="submit" value= "Post Comment">
+
+</form>
+
+<%else%>
 
 <form action="/questions/<%= @question.id%>/comment" method="post">
   <label for="body">Comment:</label>
@@ -18,3 +30,5 @@
   <input type="submit" value= "Post Comment">
 
 </form>
+
+<%end%>

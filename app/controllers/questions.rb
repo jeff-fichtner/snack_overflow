@@ -45,3 +45,21 @@ post '/questions/:id/comment' do
   end
 end
 
+get '/questions/:question_id/answers/:id/comment/new' do
+  @question = Question.find(params[:question_id])
+  @answer = Answer.find(params[:id])
+  erb :"comments/new"
+end
+
+post '/questions/:question_id/answers/:id/comment' do
+  @question = Question.find(params[:question_id])
+  @answer = Answer.find(params[:id])
+  @comment = Comment.new(user_id: current_user.id, commentable_id: @answer.id, commentable_type: 'Answer', body: params[:body])
+  if @comment.save
+    redirect "/questions/#{@question.id}"
+  else
+  @errors = "There was a problem posting your comment. Please try again."
+  erb :'/comments/new'
+  end
+end
+
