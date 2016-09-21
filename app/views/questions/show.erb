@@ -1,6 +1,11 @@
 <div class='question-container'>
 
   <h2><%= @question.title %></h2>
+  <form method='POST' action='/votes'>
+    <input type='hidden' name='votable_id' value='<%= @question.id %>'>
+    <input type='hidden' name='votable_type' value='Question'>
+    <button type='submit'>Vote!</button>
+  </form>
   <div class='question-body'>
     <%= @question.body %>
   </div>
@@ -21,6 +26,12 @@
 <div class='answer-container'>
   <h3><%= @answers.count %> Answers</h3>
   <% @answers.each do |answer| %>
+    <form method='POST' action='/votes'>
+      <input type='hidden' name='votable_id' value='<%= answer.id %>'>
+      <input type='hidden' name='question_id' value='<%= @question.id %>'>
+      <input type='hidden' name='votable_type' value='Answer'>
+      <button type='submit'>Vote!</button>
+    </form>
     <div class='answer body' id='<%= answer.id %>'>
       <%= answer.body %>
     </div>
