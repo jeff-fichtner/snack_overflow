@@ -163,6 +163,14 @@ li {
 .answer-container .comment_link{
 		border: 1px solid black;
 }
+.best button {
+	border: 1px solid black;
+	padding: 5px;
+	padding-left: 11px;
+	padding-right: 11px;
+	text-align: center;
+	background-color: #ccffcc;
+}
 /*
 .answer-container .footer{
 	color: red;

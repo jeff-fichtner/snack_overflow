@@ -46,7 +46,7 @@
           <input type='hidden' name='_method' value='PUT'>
           <input type='hidden' name='answer_id' value='<%= answer.id %>'>
           <input type='hidden' name='question_id' value='<%= @question.id %>'>
-          <button type='submit'>Select as best</button>
+          <button type='submit'>Best</button>
         </form>
       <% end %>
       <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
