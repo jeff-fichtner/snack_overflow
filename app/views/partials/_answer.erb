@@ -4,6 +4,9 @@
   <input type='hidden' name='votable_type' value='Answer'>
   <button type='submit'>Vote!</button>
 </form>
+<div class='comment_link'>
+  <a href="/questions/<%= question.id %>/answers/<%= answer.id %>/comment/new"> Comment on this answer</a>
+</div>
 
 <div class='answer body' id='<%= answer.id %>'>
   <%= answer.body %>
@@ -15,12 +18,9 @@
 </div>
 
 <% if answer.comments %>
-	<h4>Comments</h4>
-	<% answer.comments.each do |comment| %>
-	  <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-	<% end %>
+  <h4>Comments</h4>
+  <% answer.comments.each do |comment| %>
+    <%= erb(:'partials/_comment', locals: {comment: comment}) %>
+  <% end %>
 <% end %>
 
-<div class='comment_link'>
-  <a href="/questions/<%= question.id %>/answers/<%= answer.id %>/comment/new"> Comment on this answer</a>
-</div>

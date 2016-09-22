@@ -159,6 +159,10 @@ li {
 	margin-left: 5%;
 	padding-bottom: 0;
 }
+
+.answer-container .comment_link{
+		border: 1px solid black;
+}
 /*
 .answer-container .footer{
 	color: red;
