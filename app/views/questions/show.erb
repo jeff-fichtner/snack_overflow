@@ -13,46 +13,29 @@
     <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span>
     <%= @question.user.username %> answered this at <%= @question.created_at %>
   </div>
-  <div class='question comment'>
-    <h4>Comments</h4>
-    <% @comments.each do |comment| %>
-      <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-    <% end %>
-  </div>
-  <div class='comment_link'>
-    <a href="/questions/<%=@question.id%>/comments/new"> Comment on this question</a>
-  </div>
 
+  <% if @comments %>
+    <div class='question comment'>
+      <h4>Comments</h4>
+      <% @comments.each do |comment| %>
+        <%= erb(:'partials/_comment', locals: {comment: comment}) %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class='comment_link'>
+    <a href="/questions/<%= @question.id %>/comments/new"> Comment on this question</a>
+  </div>
 </div>
 
 <div class='answer-container'>
   <h3><%= @answers.count %> Answer<% if @answers.count != 1 %>s<% end %></h3>
+
   <% @answers.each do |answer| %>
     <% if answer.best %>
       <h4> Best answer:</h4>
+      <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
 
-    <form class='vote' method='POST' action='/votes'>
-      <input type='hidden' name='votable_id' value='<%= answer.id %>'>
-      <input type='hidden' name='question_id' value='<%= @question.id %>'>
-      <input type='hidden' name='votable_type' value='Answer'>
-      <button type='submit'>Vote!</button>
-    </form>
-    <div class='answer body'>
-      <%= answer.body %>
-    </div>
-    <div class='footer'>
-      <span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span>
-      <%= answer.user.username %> answered this at <%= answer.created_at %>
-    </div>
-    <div class='comment'>
-      <h4>Comments</h4>
-      <% answer.comments.each do |comment| %>
-        <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-      <% end %>
-    </div>
-      <div class='comment_link'>
-        <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>/comment/new"> Comment on this answer</a>
-      </div>
     <% end %>
   <% end %>
 
@@ -66,34 +49,14 @@
           <button type='submit'>Select as best</button>
         </form>
       <% end %>
-
-      <form class='vote' method='POST' action='/votes'>
-        <input type='hidden' name='votable_id' value='<%= answer.id %>'>
-        <input type='hidden' name='question_id' value='<%= @question.id %>'>
-        <input type='hidden' name='votable_type' value='Answer'>
-        <button type='submit'>Vote!</button>
-      </form>
-      <div class='answer body'>
-        <%= answer.body %>
-      </div>
-      <div class='footer'>
-        <span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span>
-        <%= answer.user.username %> answered this at <%= answer.created_at %>
-      </div>
-      <h4>Comments</h4>
-      <% answer.comments.each do |comment| %>
-        <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-      <% end %>
-            <div class='comment_link'>
-        <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>/comment/new"> Comment on this answer</a>
-      </div>
+      <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
     <% end %>
   <% end %>
-
-
 </div>
+
 <% if @errors %>
 <% end %>
+
 <form method='POST' action='/answers' id='new-answer'>
   <input type='hidden' name='question_id' value='<%= @question.id %>'>
   <textarea rows = '5', cols = '75' name='body' placeholder='Answer This Question'></textarea><br>
