@@ -16,9 +16,7 @@ post '/users' do
   if @user.save
     session[:user_id] = @user.id
     redirect '/'
-    # redirect "users/#{@user.id}"
   else
-    # stretch: add more spec. error messages based on user input
     @errors = "Something went wrong, please check your information and try again."
     erb :"users/new"
   end

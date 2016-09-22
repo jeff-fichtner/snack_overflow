@@ -4,7 +4,11 @@ get '/questions' do
 end
 
 get '/questions/new' do
-  erb :'questions/new'
+  if logged_in?
+    erb :'questions/new'
+  else
+    redirect '/login'
+  end
 end
 
 get '/questions/:id' do
@@ -18,47 +22,70 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  @question = Question.new(user_id: session[:user_id], title: params[:title], body: params[:body])
+  if logged_in?
+    @question = Question.new(user_id: session[:user_id], title: params[:title], body: params[:body])
     if @question.save
       redirect "/questions/#{@question.id}"
     else
       @errors = @question.errors.full_messages
       erb :'/questions/new'
     end
+  else
+    redirect '/login'
+  end
 end
 
 
 get '/questions/:id/comments/new' do
-  @question = Question.find(params[:id])
-  erb :'/comments/new'
+  if logged_in?
+    @question = Question.find(params[:id])
+    erb :'/comments/new'
+  else
+    redirect '/login'
+  end
 end
 
 post '/questions/:id/comment' do
   @question = Question.find(params[:id])
-  @comment = Comment.new(user_id: current_user.id, commentable_id: @question.id, commentable_type: 'Question', body: params[:body])
-  if @comment.save
-    redirect "/questions/#{@question.id}"
+  if logged_in?
+    @comment = Comment.new(user_id: current_user.id, commentable_id: @question.id, commentable_type: 'Question', body: params[:body])
+    if @comment.save
+      redirect "/questions/#{@question.id}"
+    else
+      @errors = @comment.errors.full_messages
+      erb :'/comments/new'
+    end
   else
-    @errors = @comment.errors.full_messages
-  erb :'/comments/new'
+    session[:question_id] = @question.id
+    erb :'/login'
   end
 end
 
 get '/questions/:question_id/answers/:id/comment/new' do
   @question = Question.find(params[:question_id])
-  @answer = Answer.find(params[:id])
-  erb :"comments/new"
+  if logged_in?
+    @answer = Answer.find(params[:id])
+    erb :"comments/new"
+  else
+    session[:question_id] = @question.id
+    erb :'/login'
+  end
 end
 
 post '/questions/:question_id/answers/:id/comment' do
   @question = Question.find(params[:question_id])
-  @answer = Answer.find(params[:id])
-  @comment = Comment.new(user_id: current_user.id, commentable_id: @answer.id, commentable_type: 'Answer', body: params[:body])
-  if @comment.save
-    redirect "/questions/#{@question.id}"
+  if logged_in?
+    @answer = Answer.find(params[:id])
+    @comment = Comment.new(user_id: current_user.id, commentable_id: @answer.id, commentable_type: 'Answer', body: params[:body])
+    if @comment.save
+      redirect "/questions/#{@question.id}"
+    else
+      @errors = @comment.errors.full_messages
+      erb :'/comments/new'
+    end
   else
-  @errors = @comment.errors.full_messages
-  erb :'/comments/new'
+    session[:question_id] = @question.id
+    erb :'/login'
   end
 end
 

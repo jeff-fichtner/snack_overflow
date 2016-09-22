@@ -4,54 +4,38 @@
   <form class='vote' method='POST' action='/votes'>
     <input type='hidden' name='votable_id' value='<%= @question.id %>'>
     <input type='hidden' name='votable_type' value='Question'>
-    <button type='submit'>Vote!</button>
+    <button type='submit'>Vote</button>
   </form>
   <div class='question-body'>
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <%= @question.votes.count %> votes
-    <%= @question.user.username %> answered this on <%= @question.created_at.strftime('%D') %>
+    <span class='Question-points' id = '<%= @question.id %>'><%= @question.votes.count %> votes</span>
+    <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
+
   </div>
+
+  <% if @comments %>
+    <div class='question comment'>
+      <h4>Comments</h4>
+      <% @comments.each do |comment| %>
+        <%= erb(:'partials/_comment', locals: {comment: comment}) %>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class='comment_link'>
-    <a href="/questions/<%=@question.id%>/comments/new"> Comment on this question</a>
+    <a href="/questions/<%= @question.id %>/comments/new"> Comment on this question</a>
   </div>
-
-  <div class='question comment'>
-    <h4>Comments</h4>
-    <% @comments.each do |comment| %>
-      <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-    <% end %>
-  </div>
-
 </div>
 
 <div class='answer-container'>
   <h3><%= @answers.count %> Answer<% if @answers.count != 1 %>s<% end %></h3>
+
   <% @answers.each do |answer| %>
     <% if answer.best %>
       <h4> Best answer:</h4>
-
-    <form class='vote' method='POST' action='/votes'>
-      <input type='hidden' name='votable_id' value='<%= answer.id %>'>
-      <input type='hidden' name='question_id' value='<%= @question.id %>'>
-      <input type='hidden' name='votable_type' value='Answer'>
-      <button type='submit'>Vote!</button>
-    </form>
-    <div class='answer body' id='<%= answer.id %>'>
-      <%= answer.body %>
-    </div>
-    <div class='footer'>
-      <%= answer.votes.count %> votes
-      <%= answer.user.username %> answered this on <%= answer.created_at.strftime('%D') %>
-    </div>
-    <h4>Comments</h4>
-    <% answer.comments.each do |comment| %>
-      <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-    <% end %>
-      <div class='comment_link'>
-        <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>/comment/new"> Comment on this answer</a>
-      </div>
+      <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
     <% end %>
   <% end %>
 
@@ -65,38 +49,19 @@
           <button type='submit'>Select as best</button>
         </form>
       <% end %>
-
-      <form class='vote' method='POST' action='/votes'>
-        <input type='hidden' name='votable_id' value='<%= answer.id %>'>
-        <input type='hidden' name='question_id' value='<%= @question.id %>'>
-        <input type='hidden' name='votable_type' value='Answer'>
-        <button type='submit'>Vote!</button>
-      </form>
-      <div class='answer body' id='<%= answer.id %>'>
-        <%= answer.body %>
-      </div>
-      <div class='footer'>
-        <%= answer.votes.count %> votes
-        <%= answer.user.username %> answered this on <%= answer.created_at.strftime('%D') %>
-      </div>
-      <h4>Comments</h4>
-      <% answer.comments.each do |comment| %>
-        <%= erb(:'partials/_comment', locals: {comment: comment}) %>
-      <% end %>
-            <div class='comment_link'>
-        <a href="/questions/<%=@question.id%>/answers/<%=answer.id%>/comment/new"> Comment on this answer</a>
-      </div>
+      <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
     <% end %>
   <% end %>
-
-
 </div>
+
 
 <div class='error_message'>
  <%if @errors %>
   <p><%= @errors[-1] %> </p>
   <%end%>
 </div>
+
+
 
 <form method='POST' action='/answers' id='new-answer'>
   <input type='hidden' name='question_id' value='<%= @question.id %>'>

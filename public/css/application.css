@@ -1,3 +1,5 @@
+/* main components */
+
 body {
 	background-color: #ccffcc;
 }
@@ -10,10 +12,14 @@ h1 {
 	border-bottom: 3px double black;
 }
 
-body:not(h1) {
+h2 {
+	font-weight: 400;
+}
+
+body:not(h1), body:not(h2) {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.5em;
-	border: 1px solid black;
+	font-weight: 300;
 }
 
 a, a:visited {
@@ -21,13 +27,35 @@ a, a:visited {
 }
 
 a:hover, a:active {
-	color: #ff0000;
+	color: #0000e6;
 	text-decoration: none;
 }
+
+li {
+	list-style-type: none;
+}
+
+.vote button {
+	border: 1px solid black;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+	background-color: #ccffcc;
+}
+
+
+/* layout-specific */
 
 .navbar {
 	margin-top: 10px;
 	padding-top: 15px;
+}
+
+.navbar li {
+	display: inline;
+	float: right;
+	padding: 20px;
 }
 
 .navbar li a {
@@ -41,13 +69,75 @@ a:hover, a:active {
 	padding-left: 1em;
 }
 
-.index-container {
-}
+
+/* main index */
 
 .index-container h2 {
 	padding: 10px;
 	margin-left: 30px;
+	font-size: 2.2em;
 }
+
+.index-container li {
+	padding: 7px;
+	font-size: 1.2em;
+}
+
+#new_question {
+	display: block;
+	padding-left: 3em;
+	margin: 1.5em;
+	font-size: 2em;
+}
+
+
+/* question show */
+
+.question-container {
+	margin: 1.5em;
+	margin-top: 50px;
+	margin-left: .75em;
+	padding: 1em;
+	border: 1px solid black;
+	max-width: 100%;
+}
+
+.question-container h2 {
+	margin-left: 15%;
+	max-width: 70%;
+	text-align: center;
+	font-size: 3em;
+	border-bottom: 1px solid black;
+	margin-bottom: 20px;
+}
+
+.question-container form {
+	margin-top: 5px;
+	float: left;
+}
+
+.question-body {
+	margin-left: 60px;
+	font-size: 1.4em;
+}
+
+.comment {
+	max-width: 100%;
+	margin-left: 10%;
+}
+
+.comment_link {
+	float: right;
+	padding: 10px;
+}
+
+/* user profile */
+
+/* add new */
+
+/* login */
+
+/* register */
 
 .footer{
   font-size: .75em;
@@ -56,16 +146,9 @@ a:hover, a:active {
 
 .comment{
   font-size: .8em;
-
 }
 
 .answer {
   padding: 5px;
   border-top: 3px solid black;
-}
-
-.navbar li {
-	display: inline;
-	float: right;
-	padding: 20px;
 }

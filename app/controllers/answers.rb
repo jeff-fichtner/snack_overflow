@@ -15,14 +15,18 @@ post '/answers' do
 end
 
 put '/answers' do
-  answer = Answer.find(params[:answer_id])
-  question = answer.question
-  if question.user_id == current_user.id && question.id == params[:question_id].to_i
-    question.answers.update_all(best: false)
-    answer.best = true
-    answer.save
-    redirect "questions/#{question.id}"
+  if logged_in?
+    answer = Answer.find(params[:answer_id])
+    question = answer.question
+    if question.user_id == current_user.id && question.id == params[:question_id].to_i
+      question.answers.update_all(best: false)
+      answer.best = true
+      answer.save
+      redirect "questions/#{question.id}"
+    else
+      redirect "questions/#{question.id}"
+    end
   else
-    redirect "questions/#{question.id}"
+    redirect '/login'
   end
 end

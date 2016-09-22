@@ -3,11 +3,11 @@
 	<ul>
 		<% @questions.each do |question| %>
 		  <li>
-		    <span class='vote-count'><%= question.total_votes %> votes  ||  </span>
+		    <span class='vote-count'><%= question.total_votes %> votes ||</span>
 		    <span id ='<%= question.id %>'><a href='/questions/<%= question.id %>'><%= question.title %></a></span>
 		  </li>
 		<% end %>
 	</ul>
 </div>
 
-<a href="/questions/new">Add new question</a>
+<a id='new_question' href="/questions/new">Add a new question</a>
