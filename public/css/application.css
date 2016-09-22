@@ -35,6 +35,9 @@ a:hover, a:active {
 li {
 	list-style-type: none;
 }
+.vote {
+		margin-right: 20%;
+}
 
 .vote button {
 	border: 1px solid black;
@@ -45,6 +48,14 @@ li {
 	background-color: #ccffcc;
 }
 
+input[type=submit]{
+	border: 1px solid black;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+	background-color: #ccffcc;
+}
 
 /* layout-specific */
 
@@ -126,6 +137,7 @@ li {
 }
 
 .comment {
+	font-size: .9em;
 	max-width: 100%;
 	margin-left: 10%;
 }
@@ -149,15 +161,12 @@ li {
   color: gray;
 }
 
-.comment{
-  font-size: .8em;
-}
-
 .answer {
   padding: 5px;
   border-top: 3px solid black;
 }
 .answer.body{
+	font-size: 1.25em;
 	position: relative;
 	top: -31px;
 	margin-left: 5%;
@@ -167,7 +176,9 @@ li {
 
 .answer-container .comment_link{
 		border: 1px solid black;
+
 }
+
 .best button {
 	border: 1px solid black;
 	padding: 5px;

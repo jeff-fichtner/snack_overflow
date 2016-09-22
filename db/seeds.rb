@@ -17,11 +17,11 @@ Answer.create(body: "fig newton", user_id: 4, question_id: 4, best: false)
 Question.create(user_id: 5, title: "Doh!", body: "Nobody better lay a finger on my...")
 Answer.create(body: "butterfinger", user_id: 5, question_id: 5, best: false)
 
-30.times do
+10.times do
   Comment.create(user_id: rand(1..5), commentable_id: rand(1..5), commentable_type: 'Question', body: Faker::Hipster.paragraph )
 end
 
-30.times do
+20.times do
   Comment.create(user_id: rand(1..5), commentable_id: rand(1..5), commentable_type: 'Answer', body: Faker::Hipster.paragraph )
 end
 
