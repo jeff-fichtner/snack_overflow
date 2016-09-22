@@ -13,7 +13,7 @@ $(document).ready(function() {
       var voteNumber = response.points;
       var id = response.votable_id;
       var type = response.votable_type;
-      $('.'+type+'-points#'+id).text(voteNumber+ ' votes');
+      $('.'+type+'-points'+id).text(voteNumber+ ' votes');
     });
   });
 });

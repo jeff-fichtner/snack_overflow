@@ -10,9 +10,9 @@
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <span class='Question-points' id = '<%= @question.id %>'><%= @question.votes.count %> votes</span>
-    <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
+    <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span>
 
+    <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
   </div>
 
   <% if @comments %>
@@ -36,6 +36,7 @@
     <% if answer.best %>
       <h4> Best answer:</h4>
       <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
+
     <% end %>
   <% end %>
 
@@ -46,7 +47,7 @@
           <input type='hidden' name='_method' value='PUT'>
           <input type='hidden' name='answer_id' value='<%= answer.id %>'>
           <input type='hidden' name='question_id' value='<%= @question.id %>'>
-          <button type='submit'>Select as best</button>
+          <button type='submit'>Best</button>
         </form>
       <% end %>
       <%= erb(:'partials/_answer', locals: {answer: answer, question: @question}) %>
