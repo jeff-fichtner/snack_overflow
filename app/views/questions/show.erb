@@ -4,20 +4,18 @@
   <form class='vote' method='POST' action='/votes'>
     <input type='hidden' name='votable_id' value='<%= @question.id %>'>
     <input type='hidden' name='votable_type' value='Question'>
-    <button type='submit'>Vote</button>
+    <button type='submit'><span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span></button>
   </form>
   <div class='question-body'>
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span><br>
-
-    <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
+    <%= @question.user.username %> asked this on <%= @question.created_at.strftime('%D') %>
   </div>
 
   <% if !@comments.empty? %>
     <div class='question comment'>
-      <h4>Comments</h4>
+      <h4>Comments:</h4>
       <% @comments.each do |comment| %>
         <%= erb(:'partials/_comment', locals: {comment: comment}) %>
       <% end %>

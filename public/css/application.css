@@ -2,6 +2,7 @@
 
 body {
 	background-color: #ccffcc;
+	color: #3a1a14;
 }
 
 h1 {
@@ -9,7 +10,7 @@ h1 {
 	padding-left: 1em;
 	font-size: 6em;
 	font-family: 'Lily Script One', cursive;
-	border-bottom: 3px double black;
+	border-bottom: 3px double #3a1a14;
 }
 
 h2 {
@@ -24,7 +25,7 @@ body:not(h1), body:not(h2) {
 
 
 a, a:visited {
-	color: black;
+	color: #3a1a14;
 }
 
 a:hover, a:active {
@@ -35,9 +36,12 @@ a:hover, a:active {
 li {
 	list-style-type: none;
 }
+.vote {
+		margin-right: 20%;
+}
 
 .vote button {
-	border: 1px solid black;
+	border: 1px solid #3a1a14;
 	padding: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -45,6 +49,14 @@ li {
 	background-color: #ccffcc;
 }
 
+input[type=submit]{
+	border: 1px solid #3a1a14;
+	padding: 4px;
+	padding-left: 8px;
+	padding-right: 8px;
+	text-align: center;
+	background-color: #ccffcc;
+}
 
 /* layout-specific */
 
@@ -99,7 +111,7 @@ li {
 	margin-top: 50px;
 	margin-left: .75em;
 	padding: 1em;
-	border: 1px solid black;
+	border: 1px solid #3a1a14;
 	max-width: 100%;
 }
 
@@ -108,7 +120,7 @@ li {
 	max-width: 70%;
 	text-align: center;
 	font-size: 3em;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid #3a1a14;
 	margin-bottom: 20px;
 }
 
@@ -126,11 +138,13 @@ li {
 }
 
 .comment {
+	font-size: .9em;
 	max-width: 100%;
 	margin-left: 10%;
 }
 
 .comment_link {
+	margin-top: 2px;
 	display: block;
 	float: right;
 	padding: 12px;
@@ -149,15 +163,12 @@ li {
   color: gray;
 }
 
-.comment{
-  font-size: .8em;
-}
-
 .answer {
   padding: 5px;
-  border-top: 3px solid black;
+  border-top: 3px solid #3a1a14;
 }
 .answer.body{
+	font-size: 1.25em;
 	position: relative;
 	top: -31px;
 	margin-left: 5%;
@@ -166,10 +177,12 @@ li {
 }
 
 .answer-container .comment_link{
-		border: 1px solid black;
+		border: 1px solid #3a1a14;
+
 }
+
 .best button {
-	border: 1px solid black;
+	border: 1px solid #3a1a14;
 	padding: 5px;
 	padding-left: 11px;
 	padding-right: 11px;
