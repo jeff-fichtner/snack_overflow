@@ -10,6 +10,12 @@ h1 {
 	border-bottom: 3px double black;
 }
 
+body:not(h1) {
+	font-family: 'Lato', sans-serif;
+	font-size: 1.5em;
+	border: 1px solid black;
+}
+
 a, a:visited {
 	color: black;
 }
@@ -30,8 +36,17 @@ a:hover, a:active {
 	font-size: 1.2em;
 }
 
-.question-container {
-	border: 1px solid black;
+.main {
+	margin-left: .75em;
+	padding-left: 1em;
+}
+
+.index-container {
+}
+
+.index-container h2 {
+	padding: 10px;
+	margin-left: 30px;
 }
 
 .footer{
@@ -53,10 +68,4 @@ a:hover, a:active {
 	display: inline;
 	float: right;
 	padding: 20px;
-}
-
-.font {
-	font-family: 'Lato', sans-serif;
-	font-size: 1.2em;
-	border: 1px solid black;
 }
