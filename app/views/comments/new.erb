@@ -4,42 +4,42 @@
 </div>
 
 <div class='error_message'>
- <%if @errors %>
- There was a problem posting your comment. Please try again.
-  <ul>
-    <% @errors.each do |error| %>
-    <li><%= error %></li>
-    <% end %>
-  </ul>
-  <%end%>
+  <% if @errors %>
+    <p>There was a problem posting your comment. Please try again.</p>
+    <ul>
+      <% @errors.each do |error| %>
+        <li>- <%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
 
-<%if @answer %>
+<% if @answer %>
   <h3>Commenting on answer written by <%= @answer.user.username %></h3>
+
   <div class='answer body' id='<%= @answer.id %>'>
     <%= @answer.body %>
   </div>
+
   <form action="/questions/<%= @question.id%>/answers/<%=@answer.id%>/comment" method="post">
     <label for="body">Comment:</label>
     <textarea name="body" rows='5' cols='75'></textarea>
     <br>
-
     <input type="submit" value= "Post Comment">
-
   </form>
 
-<%else%>
+<% else %>
+
   <h3>Commenting on: "<%= @question.title %>"</h3>
+
   <div class='question-body'>
     <%= @question.body %>
   </div>
+
   <form action="/questions/<%= @question.id%>/comment" method="post">
     <label for="body">Comment:</label>
     <textarea name="body" rows='5' cols='75'></textarea>
     <br>
-
-    <input type="submit" value= "Post Comment">
-
+    <input type="submit" value="Post Comment">
   </form>
-
-<%end%>
+<% end %>

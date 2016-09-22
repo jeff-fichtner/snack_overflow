@@ -10,11 +10,11 @@ post '/login' do
       redirect "/questions/#{session[:question_id]}" if session[:question_id]
       redirect "/users/#{user.id}"
     else
-      @errors = "username or password not found"
+      @error = "Username or password not found."
       erb :login
     end
   else
-    @errors = "username or password not found"
+    @error = "Username or password not found."
     erb :login
   end
 end

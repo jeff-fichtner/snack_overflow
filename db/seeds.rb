@@ -1,5 +1,5 @@
 5.times do
-User.create(username: Faker::Superhero.name, password: 'password', email: Faker::Internet.email)
+	User.create(username: Faker::Superhero.name, password: 'password', email: Faker::Internet.email)
 end
 
 Question.create(user_id: 1, title: "Take me out to the ball game...", body: "Which snack is most popularly sold at baseball games and comes with a toy surprise in every box?")

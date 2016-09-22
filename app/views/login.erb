@@ -3,25 +3,21 @@
 </div>
 
 <div class='error_message'>
- <%if @errors %>
-  <p><%= @errors %> </p>
+  <%if @error %>
+    <p><%= @error %></p>
   <%end%>
 </div>
 
 <h3>Please enter your email address and password below:</h3>
+
 <form action="/login" method="post">
-
-
   <label for="email">Email_address:</label>
   <input type="email" name="email" />
   <br>
-
   <label for="password">Password:</label>
   <input type="password" name="password" />
   <br>
-
   <input type="submit" value= "Login into your profile">
+</form>
 
-  <ul>
-  <li><a href="/users/new">New? Click here.</a></li>
-  </ul>
+<p>New? <a href="/users/new">Click here.</a></p>

@@ -3,10 +3,10 @@ post '/answers' do
   if logged_in?
     answer = Answer.new(body: params[:body], user_id: current_user.id, question_id: question_id)
     if !answer.save
-    session[:answer_errors] = answer.errors.full_messages
-    redirect "/questions/#{question_id}"
+      session[:answer_errors] = answer.errors.full_messages
+      redirect "/questions/#{question_id}"
     else
-    redirect "/questions/#{question_id}"
+      redirect "/questions/#{question_id}"
     end
   else
     session[:question_id] = question_id
