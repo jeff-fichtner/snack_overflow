@@ -1,3 +1,39 @@
+body {
+	background-color: #ccffcc;
+}
+
+h1 {
+	margin-left: .75em;
+	padding-left: 1em;
+	font-size: 6em;
+	font-family: 'Lily Script One', cursive;
+	border-bottom: 3px double black;
+}
+
+a, a:visited {
+	color: black;
+}
+
+a:hover, a:active {
+	color: #ff0000;
+	text-decoration: none;
+}
+
+.navbar {
+	margin-top: 10px;
+	padding-top: 15px;
+}
+
+.navbar li a {
+	margin: 0;
+	padding: 3px;
+	font-size: 1.2em;
+}
+
+.question-container {
+	border: 1px solid black;
+}
+
 .footer{
   font-size: .75em;
   color: grey;
@@ -13,26 +49,14 @@
   border-top: 3px solid black;
 }
 
-.question-container, .answer-container {
-	margin: 0 auto;
-	padding: 1em;
-}
-
 .navbar li {
 	display: inline;
 	float: right;
 	padding: 20px;
 }
 
-h1 {
-	margin-left: .75em;
-	padding-left: 1em;
-	font-size: 6em;
-	font-family: 'Lily Script One', cursive;
-	border-bottom: 2px solid black;
-}
-
 .font {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.2em;
+	border: 1px solid black;
 }
