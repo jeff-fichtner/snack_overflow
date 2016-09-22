@@ -13,7 +13,6 @@ h1 {
 body:not(h1) {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.5em;
-	border: 1px solid black;
 }
 
 a, a:visited {
@@ -34,6 +33,12 @@ li {
 	padding-top: 15px;
 }
 
+.navbar li {
+	display: inline;
+	float: right;
+	padding: 20px;
+}
+
 .navbar li a {
 	margin: 0;
 	padding: 3px;
@@ -48,6 +53,18 @@ li {
 .index-container h2 {
 	padding: 10px;
 	margin-left: 30px;
+	font-size: 2.2em;
+}
+
+.index-container li {
+	padding: 7px;
+	font-size: 1.2em;
+}
+
+.next_route {
+	padding-left: 3em;
+	margin: 1.5em;
+	font-size: 2em;
 }
 
 .footer{
@@ -57,16 +74,9 @@ li {
 
 .comment{
   font-size: .8em;
-
 }
 
 .answer {
   padding: 5px;
   border-top: 3px solid black;
-}
-
-.navbar li {
-	display: inline;
-	float: right;
-	padding: 20px;
 }
