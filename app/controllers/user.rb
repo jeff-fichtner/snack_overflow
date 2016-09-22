@@ -2,15 +2,14 @@ get '/users/new' do
   erb :'users/new'
 end
 
-# route to user profile page:
-# get '/users/:id' do
-#   @user = User.find(params[:id])
-#   if @user.id == session[:user_id]
-#   erb :"/users/show"
-#   else
-#     redirect '/login'
-#   end
-# end
+get '/users/:id' do
+  @user = User.find(params[:id])
+  if @user.id == session[:user_id]
+    erb :"/users/show"
+  else
+    redirect '/login'
+  end
+end
 
 post '/users' do
   @user = User.new(params)
