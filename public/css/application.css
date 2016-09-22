@@ -12,9 +12,14 @@ h1 {
 	border-bottom: 3px double black;
 }
 
-body:not(h1) {
+h2 {
+	font-weight: 400;
+}
+
+body:not(h1), body:not(h2) {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.5em;
+	font-weight: 300;
 }
 
 a, a:visited {
@@ -22,7 +27,7 @@ a, a:visited {
 }
 
 a:hover, a:active {
-	color: #ff0000;
+	color: #0000e6;
 	text-decoration: none;
 }
 
@@ -114,6 +119,16 @@ li {
 .question-body {
 	margin-left: 60px;
 	font-size: 1.4em;
+}
+
+.comment {
+	max-width: 100%;
+	margin-left: 10%;
+}
+
+.comment_link {
+	float: right;
+	padding: 10px;
 }
 
 /* user profile */
