@@ -61,7 +61,8 @@ li {
 	font-size: 1.2em;
 }
 
-.next_route {
+#new_question {
+	display: block;
 	padding-left: 3em;
 	margin: 1.5em;
 	font-size: 2em;
