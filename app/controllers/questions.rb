@@ -17,8 +17,6 @@ get '/questions/:id' do
 end
 
 post '/questions' do
-  # puts '============im here==================='
-  # p params
   @question = Question.new(user_id: session[:user_id], title: params[:title], body: params[:body])
     if @question.save
       redirect "/questions/#{@question.id}"
