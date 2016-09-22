@@ -1,4 +1,22 @@
 <h2><%= @user.username%></h2>
-<br>
-<p>User Profile</p>
+<h3>User Profile</h3>
 
+<br>
+
+<div id='user_questions'>
+<p>Questions:</p>
+<%@user.questions.all.each do |question|%>
+<ul>
+  <li><a href="/questions/<%=question.id%>"><%=question.title%> - <%=question.created_at %></a></li>
+</ul>
+<%end%>
+</div>
+
+<div id='user_answered_questions'>
+<p>Questions Answered:</p>
+<%@user.answers.each do |answer|%>
+<ul>
+  <li><a href="/questions/<%=answer.question.id%>"><%=answer.question.title%> - <%=answer.created_at%></a></li>
+</ul>
+<%end%>
+</div>
