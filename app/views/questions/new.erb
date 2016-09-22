@@ -4,8 +4,12 @@
 </div>
 
 <div class='error_message'>
- <%if @errors %>
-  <p><%= @errors[-1] %> </p>
+	<%if @errors %>
+	  <ul>
+	    <% @errors.each do |error| %>
+	      <li><%= error %></li>
+	    <%end%>
+	  </ul>
   <%end%>
 </div>
 

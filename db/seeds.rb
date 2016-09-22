@@ -11,7 +11,7 @@ Answer.create(body: "oreos", user_id: 2, question_id: 2, best: false)
 Question.create(user_id: 3, title: "'You're Fired'", body: "Snack known for their orange tint, currently modeled by the Republican's Party 2016 Presidential Nominee?")
 Answer.create(body: "cheetos", user_id: 3, question_id: 3, best: false)
 
-Question.create(user_id: 4, title: "Centruries Old Snack", body: "Which snack cookie is modeled after the ancient fig roll")
+Question.create(user_id: 4, title: "Centuries Old Snack", body: "Which snack cookie is modeled after the ancient fig roll")
 Answer.create(body: "fig newton", user_id: 4, question_id: 4, best: false)
 
 Question.create(user_id: 5, title: "Doh!", body: "Nobody better lay a finger on my...")
@@ -32,3 +32,5 @@ end
 20.times do
   Vote.create(votable_id: rand(1..5), votable_type: 'Question', user_id: rand(1..5))
 end
+
+User.create(username: 'admin', email: 'admin@gmail.com', password: '1234')

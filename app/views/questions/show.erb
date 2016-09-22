@@ -58,8 +58,11 @@
 
 <div class='error_message'>
  <%if @errors %>
-  <p><%= @errors[-1] %> </p>
-  <%end%>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <%end%>
+  </ul>
 </div>
 
 
