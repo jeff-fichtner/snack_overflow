@@ -120,6 +120,9 @@ li {
 	margin-left: 60px;
 	font-size: 1.4em;
 }
+.question.footer{
+	margin-left: 5%;
+}
 
 .comment {
 	max-width: 100%;

@@ -10,7 +10,7 @@
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span>
+    <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span><br>
 
     <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
   </div>
