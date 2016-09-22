@@ -25,6 +25,10 @@ a:hover, a:active {
 	text-decoration: none;
 }
 
+li {
+	list-style-type: none;
+}
+
 .navbar {
 	margin-top: 10px;
 	padding-top: 15px;
@@ -39,9 +43,6 @@ a:hover, a:active {
 .main {
 	margin-left: .75em;
 	padding-left: 1em;
-}
-
-.index-container {
 }
 
 .index-container h2 {
