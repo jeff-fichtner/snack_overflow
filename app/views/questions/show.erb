@@ -11,7 +11,8 @@
   </div>
   <div class='question footer'>
     <span class='Question-points' id = '<%= @question.id %>'><%= @question.votes.count %> votes</span>
-    <%= @question.user.username %> answered this at <%= @question.created_at %>
+    <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
+
   </div>
 
   <% if @comments %>
@@ -53,8 +54,14 @@
   <% end %>
 </div>
 
-<% if @errors %>
-<% end %>
+
+<div class='error_message'>
+ <%if @errors %>
+  <p><%= @errors[-1] %> </p>
+  <%end%>
+</div>
+
+
 
 <form method='POST' action='/answers' id='new-answer'>
   <input type='hidden' name='question_id' value='<%= @question.id %>'>

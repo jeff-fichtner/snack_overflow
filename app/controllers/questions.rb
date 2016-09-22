@@ -16,6 +16,7 @@ get '/questions/:id' do
   @answers = @question.answers.sort{ |a,b| b.total_votes <=> a.total_votes }
   @comments = @question.comments
   @votes = @question.votes
+  @errors = session[:answer_errors]
   session[:question_id] = @question.id
   erb :'questions/show'
 end
@@ -26,7 +27,7 @@ post '/questions' do
     if @question.save
       redirect "/questions/#{@question.id}"
     else
-      @errors = "Something went wrong. Please check your entry and resubmit your post."
+      @errors = @question.errors.full_messages
       erb :'/questions/new'
     end
   else
@@ -79,7 +80,7 @@ post '/questions/:question_id/answers/:id/comment' do
     if @comment.save
       redirect "/questions/#{@question.id}"
     else
-      @errors = "There was a problem posting your comment. Please try again."
+      @errors = @comment.errors.full_messages
       erb :'/comments/new'
     end
   else
