@@ -18,7 +18,7 @@
 
 <form action="/questions/<%= @question.id%>/answers/<%=@answer.id%>/comment" method="post">
   <label for="body">Comment:</label>
-  <input type="text" name="body" />
+  <textarea name="body" rows='5' cols='75'></textarea>
   <br>
 
   <input type="submit" value= "Post Comment">
@@ -29,7 +29,7 @@
 
 <form action="/questions/<%= @question.id%>/comment" method="post">
   <label for="body">Comment:</label>
-  <input type="text" name="body" />
+  <textarea name="body" rows='5' cols='75'></textarea>
   <br>
 
   <input type="submit" value= "Post Comment">
