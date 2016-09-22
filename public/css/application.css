@@ -25,5 +25,8 @@
 }
 
 h1 {
-	margin-left: 5em;
+	margin-left: 2em;
+	font-size: 6em;
+	font-family: 'Lily Script One', cursive;
+	border-bottom: 2px solid black;
 }
