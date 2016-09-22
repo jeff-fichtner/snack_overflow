@@ -10,9 +10,10 @@ $(document).ready(function() {
     });
 
     $ajaxRequest.done(function(response){
-      console.log(response);
       var voteNumber = response.points;
-      $('.'+response.votable_type+'-points')
+      var id = response.votable_id;
+      var type = response.votable_type;
+      $('.'+type+'-points#'+id).text(voteNumber+ ' votes');
     });
   });
 });

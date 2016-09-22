@@ -1,5 +1,4 @@
 post '/votes' do
-  p params
   votable_id = params[:votable_id]
   votable_type = params[:votable_type]
   if !params[:question_id]
@@ -15,7 +14,7 @@ post '/votes' do
     if request.xhr?
       votable = grab_votable(votable_type, votable_id)
       content_type :json
-      { votable_type: votable_type, voteable_id: votable_id, points: votable.total_votes }.to_json
+      { votable_type: votable_type, votable_id: votable_id, points: votable.total_votes.to_s }.to_json
     else
       redirect "/questions/#{question_id}"
     end
