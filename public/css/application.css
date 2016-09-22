@@ -2,7 +2,7 @@
 
 body {
 	background-color: #ccffcc;
-	color: #3a1a14;
+	color: #362726;
 }
 
 h1 {
@@ -10,7 +10,7 @@ h1 {
 	padding-left: 1em;
 	font-size: 6em;
 	font-family: 'Lily Script One', cursive;
-	border-bottom: 3px double #3a1a14;
+	border-bottom: 3px double #362726;
 }
 
 h2 {
@@ -24,7 +24,7 @@ body:not(h1), body:not(h2) {
 }
 
 a, a:visited {
-	color: #3a1a14;
+	color: #362726;
 }
 
 a:hover, a:active {
@@ -41,7 +41,7 @@ li {
 }
 
 .vote button {
-	border: 1px solid #3a1a14;
+	border: 1px solid #362726;
 	padding: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -50,7 +50,7 @@ li {
 }
 
 input[type=submit] {
-	border: 1px solid #3a1a14;
+	border: 1px solid #362726;
 	padding: 4px;
 	padding-left: 8px;
 	padding-right: 8px;
@@ -112,7 +112,7 @@ input[type=submit] {
 	margin-top: 50px;
 	margin-left: .75em;
 	padding: 1em;
-	border: 1px solid #3a1a14;
+	border: 1px solid #362726;
 	max-width: 100%;
 }
 
@@ -121,7 +121,7 @@ input[type=submit] {
 	max-width: 70%;
 	text-align: center;
 	font-size: 3em;
-	border-bottom: 1px solid #3a1a14;
+	border-bottom: 1px solid #362726;
 	margin-bottom: 20px;
 }
 
@@ -159,7 +159,7 @@ input[type=submit] {
 
 .answer {
   padding: 5px;
-  border-top: 3px solid #3a1a14;
+  border-top: 3px solid #362726;
 }
 
 .answer.body {
@@ -172,11 +172,11 @@ input[type=submit] {
 }
 
 .answer-container .comment_link {
-		border: 1px solid #3a1a14;
+		border: 1px solid #362726;
 }
 
 .best button {
-	border: 1px solid #3a1a14;
+	border: 1px solid #362726;
 	padding: 5px;
 	padding-left: 11px;
 	padding-right: 11px;
