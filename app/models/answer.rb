@@ -4,6 +4,8 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
   has_many :comments, as: :commentable
 
+  validates_presence_of :body, :user_id, :question_id, :best
+
   def total_votes
     self.votes.count
   end

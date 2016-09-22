@@ -11,7 +11,7 @@
   </div>
   <div class='question footer'>
     <%= @question.votes.count %> votes
-    <%= @question.user.username %> answered this at <%= @question.created_at %>
+    <%= @question.user.username %> answered this on <%= @question.created_at.strftime('%D') %>
   </div>
   <div class='comment_link'>
     <a href="/questions/<%=@question.id%>/comments/new"> Comment on this question</a>
@@ -43,7 +43,7 @@
     </div>
     <div class='footer'>
       <%= answer.votes.count %> votes
-      <%= answer.user.username %> answered this at <%= answer.created_at %>
+      <%= answer.user.username %> answered this on <%= answer.created_at.strftime('%D') %>
     </div>
     <h4>Comments</h4>
     <% answer.comments.each do |comment| %>
@@ -77,7 +77,7 @@
       </div>
       <div class='footer'>
         <%= answer.votes.count %> votes
-        <%= answer.user.username %> answered this at <%= answer.created_at %>
+        <%= answer.user.username %> answered this on <%= answer.created_at.strftime('%D') %>
       </div>
       <h4>Comments</h4>
       <% answer.comments.each do |comment| %>
@@ -91,8 +91,13 @@
 
 
 </div>
-<% if @errors %>
-<% end %>
+
+<div class='error_message'>
+ <%if @errors %>
+  <p><%= @errors[-1] %> </p>
+  <%end%>
+</div>
+
 <form method='POST' action='/answers' id='new-answer'>
   <input type='hidden' name='question_id' value='<%= @question.id %>'>
   <textarea rows = '5', cols = '75' name='body' placeholder='Answer This Question'></textarea><br>
