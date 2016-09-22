@@ -15,6 +15,7 @@ put '/answers' do
   answer = Answer.find(params[:answer_id])
   question = answer.question
   if question.user_id == current_user.id && question.id == params[:question_id].to_i
+    question.answers.update_all(best: false)
     answer.best = true
     answer.save
     redirect "questions/#{question.id}"
