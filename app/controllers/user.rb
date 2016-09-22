@@ -16,7 +16,7 @@ post '/users' do
   @user = User.new(params)
   if @user.save
     session[:user_id] = @user.id
-    redirect '/login'
+    redirect '/'
     # redirect "users/#{@user.id}"
   else
     # stretch: add more spec. error messages based on user input
