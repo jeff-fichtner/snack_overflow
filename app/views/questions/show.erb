@@ -10,7 +10,7 @@
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <%= @question.votes.count %> votes
+    <span class='Question-points' id = '<%= @question.id %>'><%= @question.votes.count %> votes</span>
     <%= @question.user.username %> answered this at <%= @question.created_at %>
   </div>
   <div class='comment_link'>
@@ -42,7 +42,7 @@
       <%= answer.body %>
     </div>
     <div class='footer'>
-      <%= answer.votes.count %> votes
+      <span class='Answer-points' id = '<%= answer.id %>'><%= answer.votes.count %> votes</span>
       <%= answer.user.username %> answered this at <%= answer.created_at %>
     </div>
     <h4>Comments</h4>
@@ -76,7 +76,7 @@
         <%= answer.body %>
       </div>
       <div class='footer'>
-        <%= answer.votes.count %> votes
+        <span class='Answer-points' id = '<%= answer.id %>'><%= answer.votes.count %> votes</span>
         <%= answer.user.username %> answered this at <%= answer.created_at %>
       </div>
       <h4>Comments</h4>
