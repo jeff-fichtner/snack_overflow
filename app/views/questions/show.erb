@@ -57,7 +57,7 @@
 
   <% @answers.each do |answer| %>
     <% unless answer.best %>
-      <% if @question.is_owner?(current_user.id) %>
+      <% if @question.is_owner?(current_user.try(:id)) %>
         <form class='best' method='POST' action='/answers'>
           <input type='hidden' name='_method' value='PUT'>
           <input type='hidden' name='answer_id' value='<%= answer.id %>'>
