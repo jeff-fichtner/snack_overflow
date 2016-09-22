@@ -4,7 +4,7 @@
   <form class='vote' method='POST' action='/votes'>
     <input type='hidden' name='votable_id' value='<%= @question.id %>'>
     <input type='hidden' name='votable_type' value='Question'>
-    <button type='submit'>Vote!</button>
+    <button type='submit'>Vote</button>
   </form>
   <div class='question-body'>
     <%= @question.body %>
