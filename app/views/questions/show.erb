@@ -10,7 +10,7 @@
     <%= @question.body %>
   </div>
   <div class='question footer'>
-    <span class='Question-points' id = '<%= @question.id %>'><%= @question.votes.count %> votes</span>
+    <span class='Question-points<%= @question.id %>'><%= @question.votes.count %> votes</span>
     <%= @question.user.username %> answered this at <%= @question.created_at %>
   </div>
   <div class='question comment'>
@@ -37,11 +37,11 @@
       <input type='hidden' name='votable_type' value='Answer'>
       <button type='submit'>Vote!</button>
     </form>
-    <div class='answer body' id='<%= answer.id %>'>
+    <div class='answer body'>
       <%= answer.body %>
     </div>
     <div class='footer'>
-      <span class='Answer-points' id='<%= answer.id %>'><%= answer.votes.count %> votes</span>
+      <span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span>
       <%= answer.user.username %> answered this at <%= answer.created_at %>
     </div>
     <div class='comment'>
@@ -77,7 +77,7 @@
         <%= answer.body %>
       </div>
       <div class='footer'>
-        <span class='Answer-points' id='<%= answer.id %>'><%= answer.votes.count %> votes</span>
+        <span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span>
         <%= answer.user.username %> answered this at <%= answer.created_at %>
       </div>
       <h4>Comments</h4>

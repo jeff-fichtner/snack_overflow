@@ -127,6 +127,7 @@ li {
 }
 
 .comment_link {
+	display: block;
 	float: right;
 	padding: 10px;
 }
@@ -151,4 +152,8 @@ li {
 .answer {
   padding: 5px;
   border-top: 3px solid black;
+}
+
+.answer-container .comment{
+	margin-left: 2%;
 }
