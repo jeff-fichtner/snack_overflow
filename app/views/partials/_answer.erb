@@ -8,16 +8,15 @@
   <a href="/questions/<%= question.id %>/answers/<%= answer.id %>/comment/new"> Comment on this answer</a>
 </div>
 
-<div class='answer body' id='<%= answer.id %>'>
-  <%= answer.body %>
-</div>
+  <p class='answer body'><%= answer.body %></p>
+
 
 <div class='footer'>
-  <span class='Answer-points' id='<%= answer.id %>'><%= answer.votes.count %> votes</span>
+  <span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span>
   <%= answer.user.username %> answered this at <%= answer.created_at %>
 </div>
 
-<% if answer.comments %>
+<% if !answer.comments.empty? %>
   <h4>Comments</h4>
   <% answer.comments.each do |comment| %>
     <%= erb(:'partials/_comment', locals: {comment: comment}) %>

@@ -22,6 +22,7 @@ body:not(h1), body:not(h2) {
 	font-weight: 300;
 }
 
+
 a, a:visited {
 	color: black;
 }
@@ -145,7 +146,7 @@ li {
 
 .footer{
   font-size: .75em;
-  color: grey;
+  color: gray;
 }
 
 .comment{
@@ -160,6 +161,7 @@ li {
 	position: relative;
 	top: -31px;
 	margin-left: 5%;
+	margin-right: 12%;
 	padding-bottom: 0;
 }
 
@@ -174,7 +176,7 @@ li {
 	text-align: center;
 	background-color: #ccffcc;
 }
-/*
-.answer-container .footer{
-	color: red;
-}*/
+
+.comment_link a{
+	z-index: -1;
+}

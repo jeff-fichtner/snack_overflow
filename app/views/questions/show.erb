@@ -15,7 +15,7 @@
     <%= @question.user.username %> answered this at <%= @question.created_at.strftime('%D') %>
   </div>
 
-  <% if @comments %>
+  <% if !@comments.empty? %>
     <div class='question comment'>
       <h4>Comments</h4>
       <% @comments.each do |comment| %>
@@ -55,18 +55,15 @@
   <% end %>
 </div>
 
-
 <div class='error_message'>
- <%if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-      <li><%= error %></li>
-    <%end%>
-  </ul>
+  <%if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+        <li><%= error %></li>
+      <%end%>
+    </ul>
   <% end %>
 </div>
-
-
 
 <form method='POST' action='/answers' id='new-answer'>
   <input type='hidden' name='question_id' value='<%= @question.id %>'>
