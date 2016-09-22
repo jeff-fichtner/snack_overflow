@@ -17,7 +17,7 @@ post '/users' do
     session[:user_id] = @user.id
     redirect '/'
   else
-    @errors = "Something went wrong, please check your information and try again."
+    @error = "Something went wrong, please check your information and try again."
     erb :"users/new"
   end
 end

@@ -35,7 +35,6 @@ post '/questions' do
   end
 end
 
-
 get '/questions/:id/comments/new' do
   if logged_in?
     @question = Question.find(params[:id])
@@ -88,4 +87,3 @@ post '/questions/:question_id/answers/:id/comment' do
     erb :'/login'
   end
 end
-

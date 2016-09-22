@@ -4,7 +4,7 @@
 		<% @questions.each do |question| %>
 		  <li>
 		    <span class='vote-count'><%= question.total_votes %> votes ||</span>
-		    <span id ='<%= question.id %>'><a href='/questions/<%= question.id %>'><%= question.title %></a></span>
+		    <span id='<%= question.id %>'><a href='/questions/<%= question.id %>'><%= question.title %></a></span>
 		  </li>
 		<% end %>
 	</ul>

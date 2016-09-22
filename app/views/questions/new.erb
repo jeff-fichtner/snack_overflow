@@ -7,9 +7,9 @@
 	  <ul>
 	    <% @errors.each do |error| %>
 	      <li><%= error %></li>
-	    <%end%>
+	    <% end %>
 	  </ul>
-  <%end%>
+  <% end %>
 </div>
 
 <form action="/questions" method="post">
@@ -17,5 +17,5 @@
   <input type="text" name="title" />
   <label for="body">Detailed Question:</label>
   <textarea name="body" rows='10' cols='75'></textarea>
-  <input type="submit" value= "Post">
+  <input type="submit" value="Post">
 </form>

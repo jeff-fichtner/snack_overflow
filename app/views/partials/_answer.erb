@@ -4,10 +4,12 @@
   <input type='hidden' name='votable_type' value='Answer'>
   <button type='submit'><span class='Answer-points<%= answer.id %>'><%= answer.votes.count %> votes</span></button>
 </form>
+
 <div class='comment_link'>
   <a href="/questions/<%= question.id %>/answers/<%= answer.id %>/comment/new"> Comment on this answer</a>
 </div>
-  <p class='answer body'><%= answer.body %></p>
+
+<p class='answer body'><%= answer.body %></p>
 
 <% if !answer.comments.empty? %>
   <h4>Comments:</h4>
@@ -15,4 +17,3 @@
     <%= erb(:'partials/_comment', locals: {comment: comment}) %>
   <% end %>
 <% end %>
-
